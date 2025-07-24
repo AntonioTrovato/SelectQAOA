@@ -32,10 +32,12 @@ import time
 import matplotlib.pyplot as plt
 import random
 import pandas as pd
+from qiskit_aer.primitives import Sampler as AerSampler
 import os
 
 noise_model = NoiseModel.from_backend(FakeBrisbane())
-backend = AerSimulator(noise_model=noise_model)
+fake_sampler = AerSampler(backend_options={'noise_model': noise_model})
+fake_sampler.options.shots = 2048
 # backend = Aer.get_backend('aer_simulator')
 # # backend.set_options(device='GPU')
 # quantum_instance = QuantumInstance(backend)
@@ -149,9 +151,9 @@ class TestCaseOptimization(OptimizationApplication):
 def create_qubo(times, frs, w1, w2, w3, sample, solution):
     testcase = TestCaseOptimization(times, frs, w1, w2, w3, sample, solution)
     prob = testcase.to_quadratic_program()
-    probQubo = QuadraticProgramToQubo() #parameter: cofficient for constraint
-    qubo = probQubo.convert(prob)
-    return qubo, testcase
+    #probQubo = QuadraticProgramToQubo() #parameter: cofficient for constraint
+    #qubo = probQubo.convert(prob)
+    return prob, testcase
 
 def get_data(data):
     times = data["time"].values.tolist()
@@ -234,11 +236,14 @@ def run_alg(qubo, reps):
     global quantum_instance
     seed = random.randint(1, 9999999)
     algorithm_globals.random_seed = seed
-    optimizer = COBYLA(100)
-    qaoa_mes = QAOA(sampler=BackendSampler(backend=backend), optimizer=optimizer, reps=reps)
-    qaoa = MinimumEigenOptimizer(qaoa_mes)
+    optimizer = COBYLA(500)
+    ideal_sampler = AerSampler()
+    ideal_sampler.options.shots = None
+    # backend.set_options(device='GPU')
+    qaoa = QAOA(sampler=ideal_sampler, optimizer=optimizer, reps=reps)
+    operator, offset = qubo.to_ising()
     begin = time.time()
-    qaoa_result = qaoa.solve(qubo)
+    qaoa_result = qaoa.compute_minimum_eigenvalue(operator)
     end = time.time()
     exe_time = end-begin
     return qaoa_result, exe_time
@@ -331,7 +336,7 @@ if __name__ == '__main__':
         itr_num = 0 #number of iterations
 
 
-        while count < 10:
+        while count < 2:
             df_time = 0 # time for writing experiment results in dataframe, to delete in total running time
             qaoa_time_total = 0 #total running time
             exe_count = 0 #number of sub-problems in one iteration
@@ -342,15 +347,29 @@ if __name__ == '__main__':
                 case_list = impact_order[index_begin:index_end]
                 qubo, testcase = create_qubo(times, frs, 1 / 3, 1 / 3, 1 / 3, case_list, solution)
                 result, qaoa_time = run_alg(qubo, reps)
+
+                eigenstate = result.eigenstate
+                most_likely = max(eigenstate.items(), key=lambda x: x[1])[0]
+
+                # Convert to bitstring format
+                if isinstance(most_likely, int):
+                    n = qubo.get_num_binary_vars()
+                    bitstring = [int(b) for b in format(most_likely, f'0{n}b')[::-1]]
+                elif isinstance(most_likely, str):
+                    bitstring = [int(b) for b in most_likely[::-1]]
+                else:
+                    raise ValueError(f"Unsupported eigenstate key type: {type(most_likely)}")
+
                 start_df = time.time() #dataframe loading time start
                 qaoa_time_total += qaoa_time
                 origin_solution = []
                 for case in case_list:
                     origin_solution.append(solution[case])
                 for case_index in range(len(case_list)):
-                    solution[case_list[case_index]] = result.x[case_index]
-                fval_list.append(result.fval) # fitness values of all subproblems
-                values_log = [itr_num, case_list, result.fval, solution, best_energy, best_solution, qaoa_time]
+                    solution[case_list[case_index]] = bitstring[case_index]
+                result_fval = qubo.objective.evaluate(bitstring) # fitness values of all subproblems
+                fval_list.append(result_fval)
+                values_log = [itr_num, case_list, result_fval, solution, best_energy, best_solution, qaoa_time]
                 log_df.loc[len(log_df)] = values_log #getting log information of one sub-problem
                 end_df = time.time()
                 df_time += end_df - start_df
@@ -360,25 +379,39 @@ if __name__ == '__main__':
                     case_list = impact_order[index_begin:index_end]
                     qubo, testcase = create_qubo(times, frs, 1 / 3, 1 / 3, 1 / 3, case_list, solution)
                     result, qaoa_time = run_alg(qubo, reps)
+
+                    eigenstate = result.eigenstate
+                    most_likely = max(eigenstate.items(), key=lambda x: x[1])[0]
+
+                    # Convert to bitstring format
+                    if isinstance(most_likely, int):
+                        n = qubo.get_num_binary_vars()
+                        bitstring = [int(b) for b in format(most_likely, f'0{n}b')[::-1]]
+                    elif isinstance(most_likely, str):
+                        bitstring = [int(b) for b in most_likely[::-1]]
+                    else:
+                        raise ValueError(f"Unsupported eigenstate key type: {type(most_likely)}")
+
                     start_df = time.time()
                     qaoa_time_total += qaoa_time # time of running qaoa
                     origin_solution = []
                     for case in case_list:
                         origin_solution.append(solution[case])
                     for case_index in range(len(case_list)):
-                        solution[case_list[case_index]] = result.x[case_index]
+                        solution[case_list[case_index]] = bitstring[case_index]
+                    result_fval = qubo.objective.evaluate(bitstring)
                     index_begin += problem_size
                     index_end += problem_size
-                    values_log = [itr_num, case_list, result.fval, solution, best_energy, best_solution, qaoa_time]
+                    values_log = [itr_num, case_list, result_fval, solution, best_energy, best_solution, qaoa_time]
                     log_df.loc[len(log_df)] = values_log # get log information of one sub-problem
                     # print("case:" + str(case_list))
                     # print("origin_solution:" + str(origin_solution))
                     # print("fval:" + str(result.fval))
                     # print("value:" + str(result.x))
-                    fval_list.append(result.fval) # fitness values of all subproblems
+                    fval_list.append(result_fval) # fitness values of all subproblems
                     end_df = time.time()
                     df_time += end_df - start_df
-            energy = result.fval # overall fitness value after running the last sub-problem in one iteration
+            energy = result_fval # overall fitness value after running the last sub-problem in one iteration
             if energy < best_energy:
                 best_itr = itr_num
                 best_solution = solution
