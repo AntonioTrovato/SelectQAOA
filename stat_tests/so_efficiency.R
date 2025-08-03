@@ -3,8 +3,9 @@ library(coin)
 library(FSA)       # for dunnTest
 library(effsize)   # for cohen's d fallback
 library(rstudioapi)
-setwd(dirname(getActiveDocumentContext()$path))
-getwd() 
+library(this.path)
+
+setwd(this.dir())
 
 # A12 Effect Size
 a12 <- function(x, y) {

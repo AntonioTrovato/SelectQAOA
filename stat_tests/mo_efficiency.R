@@ -3,8 +3,9 @@ library(jsonlite)
 library(FSA)
 library(PMCMRplus)
 library(rstudioapi)
-setwd(dirname(getActiveDocumentContext()$path))
-getwd() 
+library(this.path)
+
+setwd(this.dir())
 
 # Define function to read QAOA execution times from JSON
 read_qaoa_times <- function(program_name, config) {

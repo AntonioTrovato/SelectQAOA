@@ -2,7 +2,10 @@ library(jsonlite)
 library(dunn.test)
 library(effsize)
 library(PMCMRplus)
+library(FSA)
+library(this.path)
 
+setwd(this.dir())
 # Load data
 data <- fromJSON("../normalized_fvals.json")
 

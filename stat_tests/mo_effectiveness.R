@@ -4,8 +4,9 @@ library(PMCMRplus)
 library(coin)
 library(jsonlite)
 library(rstudioapi)
-setwd(dirname(getActiveDocumentContext()$path))
-getwd() 
+library(this.path)
+
+setwd(this.dir())
 
 # Load JSON data
 json_data <- fromJSON("../multi_obj_frontiers_eval.json")

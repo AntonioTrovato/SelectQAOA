@@ -4,6 +4,9 @@ library(tidyr)
 library(data.table)
 library(FSA)         # Per dunnTest
 library(rcompanion)  # Per p-value adjustment
+library(this.path)
+
+setwd(this.dir())
 
 # Configurazioni
 selectqaoa_configs <- c("statevector_sim", "aer_sim", "fake_vigo", "fake_vigo_zne",

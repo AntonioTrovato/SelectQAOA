@@ -3,6 +3,9 @@ library(FSA)
 library(PMCMRplus)
 library(coin)
 library(jsonlite)
+library(this.path)
+
+setwd(this.dir())
 
 # Carica i dati dal file JSON
 json_data <- fromJSON("../statevector_multi_obj_frontiers_eval.json")
