@@ -122,6 +122,80 @@ for (i in seq_along(metrics_s)) {
   }
 }
 
+print("--------- GSDTSR: ANOVA/Kruskal + Tukey/Dunn + Cohen's d ----------")
+dataset <- "gsdtsr"
+metrics <- c("final_test_suite_costs", "final_effectivenesses")
+
+for (metric in metrics) {
+  groups <- list()
+
+  # SelectQA
+  val <- load_csv_column("../results/selectqa/gsdtsr.csv", metric)
+  if (!is.null(val)) groups[["SelectQA"]] <- val
+
+  # BootQA
+  alt_metric <- ifelse(metric == "final_effectivenesses", "final_failure_rates", metric)
+  val <- load_csv_column(file.path("..", "results", "bootqa", "gsdtsr.csv"), alt_metric)
+  if (!is.null(val)) groups[["BootQA"]] <- val
+
+  # IgDec
+  for (ig_config in igdec_configs) {
+    path <- file.path("..", "results", "igdec_qaoa", ig_config, "qaoa_1", "gsdtsr", "size_7", "10", "solution.csv")
+    val <- load_csv_column(path, alt_metric)
+    if (!is.null(val)) groups[[paste0("IgDec_", ig_config)]] <- val
+  }
+
+  # SelectQAOA
+  for (sel_config in selectqaoa_configs) {
+    path <- file.path("..", "results", "selectqaoa", sel_config, "gsdtsr.csv")
+    val <- load_csv_column(path, metric)
+    if (!is.null(val)) groups[[paste0("SelectQAOA_", sel_config)]] <- val
+  }
+
+  if (length(groups) < 2) next
+
+  if (metric == "final_effectivenesses") {
+    # ANOVA + Tukey HSD
+    df <- data.frame(Value = unlist(groups),
+                     Group = rep(names(groups), times = sapply(groups, length)))
+    aov_model <- aov(Value ~ Group, data = df)
+    print(summary(aov_model))
+    tukey <- TukeyHSD(aov_model)
+    tukey_df <- as.data.frame(tukey$Group)
+    comparisons <- rownames(tukey_df)
+
+    for (comp in comparisons) {
+      comps <- unlist(strsplit(comp, "-"))
+      g1 <- comps[1]
+      g2 <- comps[2]
+      if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
+      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
+      p <- tukey_df[comp, "p adj"]
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | d=%.3f\n",
+                  dataset, metric, g1, g2, p, p, d))
+    }
+  } else if (metric == "final_test_suite_costs") {
+    # Kruskal-Wallis + Dunn Test
+    flat_values <- unlist(groups)
+    group_labels <- rep(names(groups), times = sapply(groups, length))
+
+    kw <- kruskal.test(flat_values ~ as.factor(group_labels))
+    print(kw)
+
+    dunn <- dunnTest(flat_values ~ as.factor(group_labels), method = "bonferroni")$res
+    for (i in 1:nrow(dunn)) {
+      row <- dunn[i, ]
+      comps <- unlist(strsplit(as.character(row$Comparison), " - "))
+      g1 <- comps[1]
+      g2 <- comps[2]
+      if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
+      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | z=%.4f | unAdj.p=%.4f | adj.p=%.4f | d=%.3f\n",
+                  dataset, metric, g1, g2, row$Z, row$P.unadj, row$P.adj, d))
+    }
+  }
+}
+'
 # ------------------ GSDTSR (Kruskal-Wallis + Dunn + d) ------------------
 print("------------------ GSDTSR (Kruskal-Wallis + Dunn + d) ------------------")
 dataset <- "gsdtsr"
@@ -162,7 +236,7 @@ for (metric in metrics) {
   print(kruskal_test)
   dunn <- dunnTest(flat_values ~ as.factor(group_labels), method = "bonferroni")$res
   
-  # Cohen's d for each pair
+  # Cohen\'s d for each pair
   for (i in 1:(length(groups)-1)) {
     for (j in (i+1):length(groups)) {
       g1 <- names(groups)[i]
@@ -179,8 +253,9 @@ for (metric in metrics) {
     }
   }
 }
+'
 
-print("--------- paint control: ANOVA/Kruskal + Tukey/Dunn + Cohen's d ----------")
+print("--------- Paint Control: ANOVA/Kruskal + Tukey/Dunn + Cohen's d ----------")
 dataset <- "paintcontrol"
 metrics <- c("final_test_suite_costs", "final_effectivenesses")
 
