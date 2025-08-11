@@ -235,10 +235,8 @@ def run_alg(qubo, reps):
     seed = random.randint(1, 9999999)
     algorithm_globals.random_seed = seed
     optimizer = COBYLA(500)
-    ideal_sampler = AerSampler()
-    ideal_sampler.options.shots = None
     # backend.set_options(device='GPU')
-    qaoa = QAOA(sampler=ideal_sampler, optimizer=optimizer, reps=reps)
+    qaoa = QAOA(sampler=fake_sampler, optimizer=optimizer, reps=reps)
     operator, offset = qubo.to_ising()
     begin = time.time()
     qaoa_result = qaoa.compute_minimum_eigenvalue(operator)
