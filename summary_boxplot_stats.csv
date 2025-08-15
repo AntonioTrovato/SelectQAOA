@@ -1,0 +1,6 @@
+dataset,sampler,n_subsuites,median_bestOf_AR,IQR_bestOf_AR
+gsdtsr,Sampling Noise + 5% Depolarizing Error Probability,48,0.260491587570855,0.9980276932761558
+gsdtsr,Sampling Noise + 2% Depolarizing Error Probability,48,0.29129702317840533,1.0
+gsdtsr,Sampling Noise + 1% Depolarizing Error Probability,48,0.3319796608540273,0.9122973018523477
+gsdtsr,Sampling Noise Only,48,0.4486286570781456,0.8889349566397422
+gsdtsr,Statevector Simulator,48,1.0,0.0

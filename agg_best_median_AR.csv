@@ -1,0 +1,241 @@
+dataset,sub_suite_id,sampler,best_of_iter_AR,median_of_iter_AR
+gsdtsr,1,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,1,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,1,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,1,Sampling Noise Only,1.0,1.0
+gsdtsr,1,Statevector Simulator,1.0,1.0
+gsdtsr,10,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,10,Sampling Noise + 2% Depolarizing Error Probability,0.44162283305151007,1.0
+gsdtsr,10,Sampling Noise + 5% Depolarizing Error Probability,0.44162283305151007,1.0
+gsdtsr,10,Sampling Noise Only,0.5583771669484899,1.0
+gsdtsr,10,Statevector Simulator,1.0,1.0
+gsdtsr,11,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,11,Sampling Noise + 2% Depolarizing Error Probability,0.7081415821547061,1.0
+gsdtsr,11,Sampling Noise + 5% Depolarizing Error Probability,0.7743684424946784,1.0
+gsdtsr,11,Sampling Noise Only,0.2632067798271919,1.0
+gsdtsr,11,Statevector Simulator,1.0,1.0
+gsdtsr,12,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,12,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,12,Sampling Noise + 5% Depolarizing Error Probability,0.6905703407061583,1.0
+gsdtsr,12,Sampling Noise Only,1.0,1.0
+gsdtsr,12,Statevector Simulator,1.0,1.0
+gsdtsr,13,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,13,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,13,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,13,Sampling Noise Only,1.0,1.0
+gsdtsr,13,Statevector Simulator,1.0,1.0
+gsdtsr,14,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,14,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,14,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,14,Sampling Noise Only,1.0,1.0
+gsdtsr,14,Statevector Simulator,1.0,1.0
+gsdtsr,15,Sampling Noise + 1% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,15,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,15,Sampling Noise + 5% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,15,Sampling Noise Only,1.0,1.0
+gsdtsr,15,Statevector Simulator,1.0,1.0
+gsdtsr,16,Sampling Noise + 1% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,16,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,16,Sampling Noise + 5% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,16,Sampling Noise Only,1.0,1.0
+gsdtsr,16,Statevector Simulator,1.0,1.0
+gsdtsr,18,Sampling Noise + 1% Depolarizing Error Probability,0.3861721707836993,0.8816018233357406
+gsdtsr,18,Sampling Noise + 2% Depolarizing Error Probability,0.3861721707836993,0.7477148262760206
+gsdtsr,18,Sampling Noise + 5% Depolarizing Error Probability,0.3861721707836993,0.7477148262760206
+gsdtsr,18,Sampling Noise Only,0.11839817666425939,0.8816018233357406
+gsdtsr,18,Statevector Simulator,1.0,1.0
+gsdtsr,19,Sampling Noise + 1% Depolarizing Error Probability,-111.54374117154951,-57.24323061589385
+gsdtsr,19,Sampling Noise + 2% Depolarizing Error Probability,-105.62684874120575,-46.49349998512976
+gsdtsr,19,Sampling Noise + 5% Depolarizing Error Probability,-119.5465944864005,-61.73174345837214
+gsdtsr,19,Sampling Noise Only,-75.89723911063409,-32.12304196537242
+gsdtsr,19,Statevector Simulator,1.0,1.0
+gsdtsr,2,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,2,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,2,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,2,Sampling Noise Only,1.0,1.0
+gsdtsr,2,Statevector Simulator,1.0,1.0
+gsdtsr,22,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,22,Sampling Noise + 2% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,22,Sampling Noise + 5% Depolarizing Error Probability,-0.0,0.7152830778797473
+gsdtsr,22,Sampling Noise Only,-0.0,1.0
+gsdtsr,22,Statevector Simulator,1.0,1.0
+gsdtsr,28,Sampling Noise + 1% Depolarizing Error Probability,0.48893721936004825,1.0
+gsdtsr,28,Sampling Noise + 2% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,28,Sampling Noise + 5% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,28,Sampling Noise Only,-0.0,0.48893721936004825
+gsdtsr,28,Statevector Simulator,1.0,1.0
+gsdtsr,29,Sampling Noise + 1% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,29,Sampling Noise + 2% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,29,Sampling Noise + 5% Depolarizing Error Probability,0.6677030457963785,0.793207793812491
+gsdtsr,29,Sampling Noise Only,0.6677030457963785,1.0
+gsdtsr,29,Statevector Simulator,1.0,1.0
+gsdtsr,3,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,3,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,3,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,3,Sampling Noise Only,1.0,1.0
+gsdtsr,3,Statevector Simulator,1.0,1.0
+gsdtsr,31,Sampling Noise + 1% Depolarizing Error Probability,0.2931923628037904,0.6974947593046158
+gsdtsr,31,Sampling Noise + 2% Depolarizing Error Probability,-0.0,0.5010273487001948
+gsdtsr,31,Sampling Noise + 5% Depolarizing Error Probability,0.09974245840505155,0.6964674106044211
+gsdtsr,31,Sampling Noise Only,0.2931923628037904,0.40430239650082533
+gsdtsr,31,Statevector Simulator,1.0,1.0
+gsdtsr,32,Sampling Noise + 1% Depolarizing Error Probability,0.17573011907999264,0.585002516727495
+gsdtsr,32,Sampling Noise + 2% Depolarizing Error Probability,-0.0,0.3896117157236651
+gsdtsr,32,Sampling Noise + 5% Depolarizing Error Probability,0.1220236389735029,0.6459441128356479
+gsdtsr,32,Sampling Noise Only,0.3451582107934625,0.4948663700048235
+gsdtsr,32,Statevector Simulator,1.0,1.0
+gsdtsr,36,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,36,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,36,Sampling Noise + 5% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,36,Sampling Noise Only,-0.0,1.0
+gsdtsr,36,Statevector Simulator,1.0,1.0
+gsdtsr,4,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,4,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,4,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,4,Sampling Noise Only,1.0,1.0
+gsdtsr,4,Statevector Simulator,1.0,1.0
+gsdtsr,48,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,48,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,48,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,48,Sampling Noise Only,1.0,1.0
+gsdtsr,48,Statevector Simulator,1.0,1.0
+gsdtsr,49,Sampling Noise + 1% Depolarizing Error Probability,-0.0,0.44596206885139567
+gsdtsr,49,Sampling Noise + 2% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,49,Sampling Noise + 5% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,49,Sampling Noise Only,1.0,1.0
+gsdtsr,49,Statevector Simulator,1.0,1.0
+gsdtsr,5,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,5,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,5,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,5,Sampling Noise Only,1.0,1.0
+gsdtsr,5,Statevector Simulator,1.0,1.0
+gsdtsr,50,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,50,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,50,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,50,Sampling Noise Only,1.0,1.0
+gsdtsr,50,Statevector Simulator,1.0,1.0
+gsdtsr,51,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,51,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,51,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,51,Sampling Noise Only,1.0,1.0
+gsdtsr,51,Statevector Simulator,1.0,1.0
+gsdtsr,52,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,52,Sampling Noise + 2% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,52,Sampling Noise + 5% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,52,Sampling Noise Only,1.0,1.0
+gsdtsr,52,Statevector Simulator,1.0,1.0
+gsdtsr,6,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,6,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,6,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,6,Sampling Noise Only,1.0,1.0
+gsdtsr,6,Statevector Simulator,1.0,1.0
+gsdtsr,61,Sampling Noise + 1% Depolarizing Error Probability,-2.1968407425478897,-0.816062421395739
+gsdtsr,61,Sampling Noise + 2% Depolarizing Error Probability,-2.3607498016882276,-1.3872375702167616
+gsdtsr,61,Sampling Noise + 5% Depolarizing Error Probability,-3.359636338871305,-1.2030916020037772
+gsdtsr,61,Sampling Noise Only,-2.3596363388713053,-2.1616821335064924
+gsdtsr,61,Statevector Simulator,1.0,1.0
+gsdtsr,63,Sampling Noise + 1% Depolarizing Error Probability,0.07160163091607018,0.3063655826339134
+gsdtsr,63,Sampling Noise + 2% Depolarizing Error Probability,0.21502978370625409,0.32323203579462334
+gsdtsr,63,Sampling Noise + 5% Depolarizing Error Probability,-0.0,0.37355074584954784
+gsdtsr,63,Sampling Noise Only,-0.3535359284107533,0.37355074584954784
+gsdtsr,63,Statevector Simulator,1.0,1.0
+gsdtsr,66,Sampling Noise + 1% Depolarizing Error Probability,0.32470766272866186,0.573950827166462
+gsdtsr,66,Sampling Noise + 2% Depolarizing Error Probability,0.13530330572084878,0.5
+gsdtsr,66,Sampling Noise + 5% Depolarizing Error Probability,0.28872470509364073,0.5640618206960071
+gsdtsr,66,Sampling Noise Only,0.558183162753533,0.8330457554617278
+gsdtsr,66,Statevector Simulator,1.0,1.0
+gsdtsr,67,Sampling Noise + 1% Depolarizing Error Probability,0.2995559434030967,0.4531992619663106
+gsdtsr,67,Sampling Noise + 2% Depolarizing Error Probability,0.131054909951069,0.5514397831931743
+gsdtsr,67,Sampling Noise + 5% Depolarizing Error Probability,0.25086129134172086,0.48308518660508476
+gsdtsr,67,Sampling Noise Only,0.38191620129278986,0.5862914010478906
+gsdtsr,67,Statevector Simulator,1.0,1.0
+gsdtsr,68,Sampling Noise + 1% Depolarizing Error Probability,0.07158339876445077,0.48267516245109066
+gsdtsr,68,Sampling Noise + 2% Depolarizing Error Probability,0.3648828360422432,0.580147269827552
+gsdtsr,68,Sampling Noise + 5% Depolarizing Error Probability,0.13300489762268847,0.48169078672069715
+gsdtsr,68,Sampling Noise Only,0.13300489762268847,0.35864119789370946
+gsdtsr,68,Statevector Simulator,1.0,1.0
+gsdtsr,69,Sampling Noise + 1% Depolarizing Error Probability,0.48113434732777466,0.5188656526722254
+gsdtsr,69,Sampling Noise + 2% Depolarizing Error Probability,0.3083329685509109,0.6093696673890137
+gsdtsr,69,Sampling Noise + 5% Depolarizing Error Probability,0.3081799475627235,0.4916038194029011
+gsdtsr,69,Sampling Noise Only,0.3751692217779583,0.4084650155301752
+gsdtsr,69,Statevector Simulator,1.0,1.0
+gsdtsr,7,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,7,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,7,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,7,Sampling Noise Only,1.0,1.0
+gsdtsr,7,Statevector Simulator,1.0,1.0
+gsdtsr,70,Sampling Noise + 1% Depolarizing Error Probability,0.33925165897939275,0.6085913215350006
+gsdtsr,70,Sampling Noise + 2% Depolarizing Error Probability,0.27921249637962414,0.5276044721675011
+gsdtsr,70,Sampling Noise + 5% Depolarizing Error Probability,0.31460521131174946,0.6306123892343158
+gsdtsr,70,Sampling Noise Only,0.5938177076913737,0.6556424859252177
+gsdtsr,70,Statevector Simulator,1.0,1.0
+gsdtsr,71,Sampling Noise + 1% Depolarizing Error Probability,0.0930697205581796,0.8187404016722113
+gsdtsr,71,Sampling Noise + 2% Depolarizing Error Probability,0.1833615235992228,0.5463917379883931
+gsdtsr,71,Sampling Noise + 5% Depolarizing Error Probability,0.2701218837999891,0.5926412202716311
+gsdtsr,71,Sampling Noise Only,0.27432931888596807,0.6367674257539555
+gsdtsr,71,Statevector Simulator,1.0,1.0
+gsdtsr,72,Sampling Noise + 1% Depolarizing Error Probability,-0.0,0.5383551502530463
+gsdtsr,72,Sampling Noise + 2% Depolarizing Error Probability,0.3073175519204977,0.5346081409870979
+gsdtsr,72,Sampling Noise + 5% Depolarizing Error Probability,0.15499735196860764,0.5256957883494592
+gsdtsr,72,Sampling Noise Only,-0.0,0.6586160903311878
+gsdtsr,72,Statevector Simulator,1.0,1.0
+gsdtsr,73,Sampling Noise + 1% Depolarizing Error Probability,0.2586160498730274,0.26397174948385044
+gsdtsr,73,Sampling Noise + 2% Depolarizing Error Probability,-0.0,0.5865099798067395
+gsdtsr,73,Sampling Noise + 5% Depolarizing Error Probability,0.12997251022890904,0.3888398245750617
+gsdtsr,73,Sampling Noise Only,0.2092654195413445,0.3987832435026934
+gsdtsr,73,Statevector Simulator,1.0,1.0
+gsdtsr,74,Sampling Noise + 1% Depolarizing Error Probability,0.23521813776367004,0.5552604501047494
+gsdtsr,74,Sampling Noise + 2% Depolarizing Error Probability,-0.0,0.3361771738510167
+gsdtsr,74,Sampling Noise + 5% Depolarizing Error Probability,0.23521813776367004,0.5219603845157726
+gsdtsr,74,Sampling Noise Only,-0.0,1.0
+gsdtsr,74,Statevector Simulator,1.0,1.0
+gsdtsr,75,Sampling Noise + 1% Depolarizing Error Probability,0.01069910187405656,0.9047225434620491
+gsdtsr,75,Sampling Noise + 2% Depolarizing Error Probability,-0.0031059065448488963,0.08517016437805378
+gsdtsr,75,Sampling Noise + 5% Depolarizing Error Probability,0.09197378718191095,0.8764361373601983
+gsdtsr,75,Sampling Noise Only,0.08906564344825317,0.9018143997283913
+gsdtsr,75,Statevector Simulator,1.0,1.0
+gsdtsr,76,Sampling Noise + 1% Depolarizing Error Probability,-0.4399194136190521,-0.022859843239361844
+gsdtsr,76,Sampling Noise + 2% Depolarizing Error Probability,-0.12592631135868704,0.4256918839323943
+gsdtsr,76,Sampling Noise + 5% Depolarizing Error Probability,-0.12592631135868704,0.6343887024485536
+gsdtsr,76,Sampling Noise Only,-0.41722949284252775,0.26894732735994464
+gsdtsr,76,Statevector Simulator,1.0,1.0
+gsdtsr,77,Sampling Noise + 1% Depolarizing Error Probability,0.27302771136705534,0.5754022030146112
+gsdtsr,77,Sampling Noise + 2% Depolarizing Error Probability,-0.06126218887386882,0.5608793490793132
+gsdtsr,77,Sampling Noise + 5% Depolarizing Error Probability,0.002629742298458891,0.32544308670693656
+gsdtsr,77,Sampling Noise Only,0.017152596233756787,0.6392941341869388
+gsdtsr,77,Statevector Simulator,1.0,1.0
+gsdtsr,78,Sampling Noise + 1% Depolarizing Error Probability,0.6157401722269252,0.789670652421228
+gsdtsr,78,Sampling Noise + 2% Depolarizing Error Probability,0.1739304801943028,0.7466570497104088
+gsdtsr,78,Sampling Noise + 5% Depolarizing Error Probability,0.21032934757877195,0.7466570497104088
+gsdtsr,78,Sampling Noise Only,0.0794124700952885,0.9205875299047116
+gsdtsr,78,Statevector Simulator,1.0,1.0
+gsdtsr,79,Sampling Noise + 1% Depolarizing Error Probability,0.18127733715931227,0.6966184500228136
+gsdtsr,79,Sampling Noise + 2% Depolarizing Error Probability,0.3033815499771865,0.6140643574491482
+gsdtsr,79,Sampling Noise + 5% Depolarizing Error Probability,0.10593506080589284,0.6589473118461039
+gsdtsr,79,Sampling Noise Only,0.5153411128635014,0.8187226628406878
+gsdtsr,79,Statevector Simulator,1.0,1.0
+gsdtsr,8,Sampling Noise + 1% Depolarizing Error Probability,1.0,1.0
+gsdtsr,8,Sampling Noise + 2% Depolarizing Error Probability,1.0,1.0
+gsdtsr,8,Sampling Noise + 5% Depolarizing Error Probability,1.0,1.0
+gsdtsr,8,Sampling Noise Only,1.0,1.0
+gsdtsr,8,Statevector Simulator,1.0,1.0
+gsdtsr,82,Sampling Noise + 1% Depolarizing Error Probability,-0.0,0.1183856098566189
+gsdtsr,82,Sampling Noise + 2% Depolarizing Error Probability,0.20478095575918223,0.6186065159912381
+gsdtsr,82,Sampling Noise + 5% Depolarizing Error Probability,0.2773065327321701,0.742622093177508
+gsdtsr,82,Sampling Noise Only,0.36005906334669074,0.5270692333801105
+gsdtsr,82,Statevector Simulator,1.0,1.0
+gsdtsr,83,Sampling Noise + 1% Depolarizing Error Probability,0.18726609940625003,0.5938718435838539
+gsdtsr,83,Sampling Noise + 2% Depolarizing Error Probability,0.14931565804245267,0.4462515798343796
+gsdtsr,83,Sampling Noise + 5% Depolarizing Error Probability,-0.09094407212115667,0.2510897657500435
+gsdtsr,83,Sampling Noise Only,0.38085047736356964,0.49633884071047496
+gsdtsr,83,Statevector Simulator,1.0,1.0
+gsdtsr,84,Sampling Noise + 1% Depolarizing Error Probability,0.31975512337076223,0.7590805453888786
+gsdtsr,84,Sampling Noise + 2% Depolarizing Error Probability,0.12147801110427818,0.5523454963286787
+gsdtsr,84,Sampling Noise + 5% Depolarizing Error Probability,0.08401895765397964,0.5956690553404266
+gsdtsr,84,Sampling Noise Only,0.2843326375178986,0.47418886040148545
+gsdtsr,84,Statevector Simulator,1.0,1.0
+gsdtsr,9,Sampling Noise + 1% Depolarizing Error Probability,0.2103869815441562,1.0
+gsdtsr,9,Sampling Noise + 2% Depolarizing Error Probability,-0.0,1.0
+gsdtsr,9,Sampling Noise + 5% Depolarizing Error Probability,0.4852035144795232,1.0
+gsdtsr,9,Sampling Noise Only,0.7896130184558438,1.0
+gsdtsr,9,Statevector Simulator,1.0,1.0
