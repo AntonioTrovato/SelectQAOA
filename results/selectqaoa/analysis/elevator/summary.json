@@ -1,0 +1,156 @@
+{
+  "suite": "elevator",
+  "n_clusters": 881,
+  "present_samplers": [
+    "statevector",
+    "sampling",
+    "fake_brisbane",
+    "dep_01",
+    "dep_02",
+    "dep_05"
+  ],
+  "friedman": {
+    "chi2": 27.90909090917929,
+    "p_value": 3.791879588039131e-05
+  },
+  "average_ranks": {
+    "statevector": 3.4642451759364357,
+    "sampling": 3.504540295119183,
+    "fake_brisbane": 3.5164585698070376,
+    "dep_01": 3.4977298524404086,
+    "dep_02": 3.497162315550511,
+    "dep_05": 3.5198637911464243
+  },
+  "pairwise_wilcoxon_holm": [
+    {
+      "A": "statevector",
+      "B": "sampling",
+      "p": 0.0014737808438751421,
+      "holm_threshold": 0.0038461538461538464,
+      "reject": true
+    },
+    {
+      "A": "statevector",
+      "B": "fake_brisbane",
+      "p": 0.0009815397525216685,
+      "holm_threshold": 0.0035714285714285718,
+      "reject": true
+    },
+    {
+      "A": "statevector",
+      "B": "dep_01",
+      "p": 0.003345618115850882,
+      "holm_threshold": 0.004166666666666667,
+      "reject": true
+    },
+    {
+      "A": "statevector",
+      "B": "dep_02",
+      "p": 0.007685794055213263,
+      "holm_threshold": 0.004545454545454546,
+      "reject": false
+    },
+    {
+      "A": "statevector",
+      "B": "dep_05",
+      "p": 0.00043777719457466344,
+      "holm_threshold": 0.0033333333333333335,
+      "reject": true
+    },
+    {
+      "A": "sampling",
+      "B": "fake_brisbane",
+      "p": 0.11176874513967605,
+      "holm_threshold": 0.0071428571428571435,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_01",
+      "p": 0.875329249147922,
+      "holm_threshold": 0.05,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_02",
+      "p": 0.43276758066778476,
+      "holm_threshold": 0.0125,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_05",
+      "p": 0.055532980815942684,
+      "holm_threshold": 0.005,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_01",
+      "p": 0.08437944259396048,
+      "holm_threshold": 0.005555555555555556,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_02",
+      "p": 0.17295491798842066,
+      "holm_threshold": 0.01,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_05",
+      "p": 0.8202800980995039,
+      "holm_threshold": 0.025,
+      "reject": false
+    },
+    {
+      "A": "dep_01",
+      "B": "dep_02",
+      "p": 0.7775646168566407,
+      "holm_threshold": 0.016666666666666666,
+      "reject": false
+    },
+    {
+      "A": "dep_01",
+      "B": "dep_05",
+      "p": 0.13975586593901426,
+      "holm_threshold": 0.008333333333333333,
+      "reject": false
+    },
+    {
+      "A": "dep_02",
+      "B": "dep_05",
+      "p": 0.1005251728089838,
+      "holm_threshold": 0.00625,
+      "reject": false
+    }
+  ],
+  "cliffs_delta": {
+    "statevector__vs__sampling": -0.005157435119775408,
+    "statevector__vs__fake_brisbane": -0.005771998335396909,
+    "statevector__vs__dep_01": -0.004590542426120354,
+    "statevector__vs__dep_02": -0.003992728312811388,
+    "statevector__vs__dep_05": -0.007520346938328517,
+    "sampling__vs__fake_brisbane": -0.0006287355329628776,
+    "sampling__vs__dep_01": 0.0005784882260252705,
+    "sampling__vs__dep_02": 0.0011556880595649615,
+    "sampling__vs__dep_05": -0.002369353780981008,
+    "fake_brisbane__vs__dep_01": 0.0012059353665025683,
+    "fake_brisbane__vs__dep_02": 0.0017857119850134186,
+    "fake_brisbane__vs__dep_05": -0.0017251575381911743,
+    "dep_01__vs__dep_02": 0.0005823534034820095,
+    "dep_01__vs__dep_05": -0.00294268843706396,
+    "dep_02__vs__dep_05": -0.0035250418405459692
+  },
+  "per_sampler_std_of_cluster_medians": {
+    "statevector": 0.3192429451107731,
+    "sampling": 0.31927638538588776,
+    "fake_brisbane": 0.31929947956769406,
+    "dep_01": 0.3192745287586587,
+    "dep_02": 0.31927895955577756,
+    "dep_05": 0.3192898630568615
+  }
+}

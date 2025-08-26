@@ -1,0 +1,156 @@
+{
+  "suite": "iofrol",
+  "n_clusters": 443,
+  "present_samplers": [
+    "statevector",
+    "sampling",
+    "fake_brisbane",
+    "dep_01",
+    "dep_02",
+    "dep_05"
+  ],
+  "friedman": {
+    "chi2": 289.1173986486449,
+    "p_value": 2.187173780972327e-60
+  },
+  "average_ranks": {
+    "statevector": 2.68058690744921,
+    "sampling": 3.533860045146727,
+    "fake_brisbane": 3.5835214446952595,
+    "dep_01": 3.6625282167042887,
+    "dep_02": 3.6681715575620766,
+    "dep_05": 3.871331828442438
+  },
+  "pairwise_wilcoxon_holm": [
+    {
+      "A": "statevector",
+      "B": "sampling",
+      "p": 4.597822277805022e-24,
+      "holm_threshold": 0.004545454545454546,
+      "reject": true
+    },
+    {
+      "A": "statevector",
+      "B": "fake_brisbane",
+      "p": 4.744673473788978e-25,
+      "holm_threshold": 0.0035714285714285718,
+      "reject": true
+    },
+    {
+      "A": "statevector",
+      "B": "dep_01",
+      "p": 4.744673473788978e-25,
+      "holm_threshold": 0.0038461538461538464,
+      "reject": true
+    },
+    {
+      "A": "statevector",
+      "B": "dep_02",
+      "p": 6.927404912917555e-25,
+      "holm_threshold": 0.004166666666666667,
+      "reject": true
+    },
+    {
+      "A": "statevector",
+      "B": "dep_05",
+      "p": 7.914547386137409e-29,
+      "holm_threshold": 0.0033333333333333335,
+      "reject": true
+    },
+    {
+      "A": "sampling",
+      "B": "fake_brisbane",
+      "p": 0.27631587685961845,
+      "holm_threshold": 0.016666666666666666,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_01",
+      "p": 0.23694893356936086,
+      "holm_threshold": 0.01,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_02",
+      "p": 0.08301505177154152,
+      "holm_threshold": 0.008333333333333333,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_05",
+      "p": 3.422786613766402e-06,
+      "holm_threshold": 0.005555555555555556,
+      "reject": true
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_01",
+      "p": 0.8105655880972926,
+      "holm_threshold": 0.05,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_02",
+      "p": 0.2591509699626038,
+      "holm_threshold": 0.0125,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_05",
+      "p": 2.932394925797503e-06,
+      "holm_threshold": 0.005,
+      "reject": true
+    },
+    {
+      "A": "dep_01",
+      "B": "dep_02",
+      "p": 0.43938695269819816,
+      "holm_threshold": 0.025,
+      "reject": false
+    },
+    {
+      "A": "dep_01",
+      "B": "dep_05",
+      "p": 0.00017934883011726536,
+      "holm_threshold": 0.00625,
+      "reject": true
+    },
+    {
+      "A": "dep_02",
+      "B": "dep_05",
+      "p": 0.0009229587279315965,
+      "holm_threshold": 0.0071428571428571435,
+      "reject": true
+    }
+  ],
+  "cliffs_delta": {
+    "statevector__vs__sampling": -0.15471161636492414,
+    "statevector__vs__fake_brisbane": -0.1601129177728294,
+    "statevector__vs__dep_01": -0.16596262910893814,
+    "statevector__vs__dep_02": -0.16633460552665236,
+    "statevector__vs__dep_05": -0.19091562249998725,
+    "sampling__vs__fake_brisbane": -0.008947816294605324,
+    "sampling__vs__dep_01": -0.011113432425133376,
+    "sampling__vs__dep_02": -0.01514402621159853,
+    "sampling__vs__dep_05": -0.04917222508140169,
+    "fake_brisbane__vs__dep_01": -0.0021758072652599504,
+    "fake_brisbane__vs__dep_02": -0.006196209916993207,
+    "fake_brisbane__vs__dep_05": -0.04020402651733257,
+    "dep_01__vs__dep_02": -0.004010211517001361,
+    "dep_01__vs__dep_05": -0.03880274549169677,
+    "dep_02__vs__dep_05": -0.03445113096117687
+  },
+  "per_sampler_std_of_cluster_medians": {
+    "statevector": 0.10855016912011534,
+    "sampling": 0.11067352734234301,
+    "fake_brisbane": 0.11085953941256413,
+    "dep_01": 0.11086921900168921,
+    "dep_02": 0.11107907300072906,
+    "dep_05": 0.11183455399161034
+  }
+}

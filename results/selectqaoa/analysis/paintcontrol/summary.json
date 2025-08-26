@@ -1,0 +1,156 @@
+{
+  "suite": "paintcontrol",
+  "n_clusters": 24,
+  "present_samplers": [
+    "statevector",
+    "sampling",
+    "fake_brisbane",
+    "dep_01",
+    "dep_02",
+    "dep_05"
+  ],
+  "friedman": {
+    "chi2": 22.50659630606865,
+    "p_value": 0.00041932942683181823
+  },
+  "average_ranks": {
+    "statevector": 2.5208333333333335,
+    "sampling": 3.4375,
+    "fake_brisbane": 4.125,
+    "dep_01": 3.5208333333333335,
+    "dep_02": 3.5416666666666665,
+    "dep_05": 3.8541666666666665
+  },
+  "pairwise_wilcoxon_holm": [
+    {
+      "A": "statevector",
+      "B": "sampling",
+      "p": 0.007685794055213263,
+      "holm_threshold": 0.004166666666666667,
+      "reject": false
+    },
+    {
+      "A": "statevector",
+      "B": "fake_brisbane",
+      "p": 0.005062032126267864,
+      "holm_threshold": 0.0033333333333333335,
+      "reject": false
+    },
+    {
+      "A": "statevector",
+      "B": "dep_01",
+      "p": 0.011718685599768632,
+      "holm_threshold": 0.004545454545454546,
+      "reject": false
+    },
+    {
+      "A": "statevector",
+      "B": "dep_02",
+      "p": 0.005062032126267864,
+      "holm_threshold": 0.0035714285714285718,
+      "reject": false
+    },
+    {
+      "A": "statevector",
+      "B": "dep_05",
+      "p": 0.005062032126267864,
+      "holm_threshold": 0.0038461538461538464,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "fake_brisbane",
+      "p": 0.050460608611093596,
+      "holm_threshold": 0.005555555555555556,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_01",
+      "p": 0.6784023758521882,
+      "holm_threshold": 0.016666666666666666,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_02",
+      "p": 0.5146697234497355,
+      "holm_threshold": 0.0125,
+      "reject": false
+    },
+    {
+      "A": "sampling",
+      "B": "dep_05",
+      "p": 0.09116079400519664,
+      "holm_threshold": 0.00625,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_01",
+      "p": 0.09260069782067576,
+      "holm_threshold": 0.0071428571428571435,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_02",
+      "p": 0.02182427562605354,
+      "holm_threshold": 0.005,
+      "reject": false
+    },
+    {
+      "A": "fake_brisbane",
+      "B": "dep_05",
+      "p": 0.916511907863894,
+      "holm_threshold": 0.05,
+      "reject": false
+    },
+    {
+      "A": "dep_01",
+      "B": "dep_02",
+      "p": 0.779434528427275,
+      "holm_threshold": 0.025,
+      "reject": false
+    },
+    {
+      "A": "dep_01",
+      "B": "dep_05",
+      "p": 0.24112136827741837,
+      "holm_threshold": 0.01,
+      "reject": false
+    },
+    {
+      "A": "dep_02",
+      "B": "dep_05",
+      "p": 0.18231443298387762,
+      "holm_threshold": 0.008333333333333333,
+      "reject": false
+    }
+  ],
+  "cliffs_delta": {
+    "statevector__vs__sampling": -0.15625,
+    "statevector__vs__fake_brisbane": -0.1579861111111111,
+    "statevector__vs__dep_01": -0.07465277777777778,
+    "statevector__vs__dep_02": -0.09722222222222222,
+    "statevector__vs__dep_05": -0.09722222222222222,
+    "sampling__vs__fake_brisbane": -0.027777777777777776,
+    "sampling__vs__dep_01": 0.050347222222222224,
+    "sampling__vs__dep_02": 0.041666666666666664,
+    "sampling__vs__dep_05": 0.019097222222222224,
+    "fake_brisbane__vs__dep_01": 0.08680555555555555,
+    "fake_brisbane__vs__dep_02": 0.07118055555555555,
+    "fake_brisbane__vs__dep_05": 0.050347222222222224,
+    "dep_01__vs__dep_02": -0.013888888888888888,
+    "dep_01__vs__dep_05": -0.024305555555555556,
+    "dep_02__vs__dep_05": -0.013888888888888888
+  },
+  "per_sampler_std_of_cluster_medians": {
+    "statevector": 0.06284696345105843,
+    "sampling": 0.06450543985635372,
+    "fake_brisbane": 0.06541696400773532,
+    "dep_01": 0.06448608032332129,
+    "dep_02": 0.06411323328775577,
+    "dep_05": 0.06457388150301151
+  }
+}
