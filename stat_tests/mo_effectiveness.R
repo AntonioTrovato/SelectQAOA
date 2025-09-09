@@ -15,8 +15,7 @@ json_data <- fromJSON("../multi_obj_frontiers_eval.json")
 config_map <- list(
   statevector = "statevector_sim",
   aer = "aer_sim",
-  fake_vigo = "fake_vigo",
-  fake_vigo_zne = "fake_vigo_zne",
+  fake_brisbane = "fake_brisbane",
   noise_1 = "depolarizing_sim/01",
   noise_2 = "depolarizing_sim/02",
   noise_5 = "depolarizing_sim/05"
