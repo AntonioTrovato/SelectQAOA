@@ -121,8 +121,8 @@ for (i in seq_along(metrics_s)) {
     }
   }
 }
-
-print("--------- GSDTSR: ANOVA/Kruskal + Tukey/Dunn + Cohen's d ----------")
+'
+print("--------- GSDTSR: ANOVA/Kruskal + Tukey/Dunn + Cohen\'s d ----------")
 dataset <- "gsdtsr"
 metrics <- c("final_test_suite_costs", "final_effectivenesses")
 
@@ -194,8 +194,8 @@ for (metric in metrics) {
                   dataset, metric, g1, g2, row$Z, row$P.unadj, row$P.adj, d))
     }
   }
-}
-'
+}'
+
 # ------------------ GSDTSR (Kruskal-Wallis + Dunn + d) ------------------
 print("------------------ GSDTSR (Kruskal-Wallis + Dunn + d) ------------------")
 dataset <- "gsdtsr"
@@ -253,7 +253,7 @@ for (metric in metrics) {
     }
   }
 }
-'
+
 
 print("--------- Paint Control: ANOVA/Kruskal + Tukey/Dunn + Cohen's d ----------")
 dataset <- "paintcontrol"

@@ -9,7 +9,7 @@ library(this.path)
 setwd(this.dir())
 
 # Configurazioni
-selectqaoa_configs <- c("statevector_sim", "aer_sim", "fake_vigo", "fake_vigo_zne",
+selectqaoa_configs <- c("statevector_sim", "aer_sim", "fake_brisbane", 
                         "depolarizing_sim/01", "depolarizing_sim/02", "depolarizing_sim/05")
 igdec_qaoa_elevator2_configs <- c("ideal/qaoa_1/elevator_three", "noise/qaoa_1/elevator_one")
 igdec_configs <- c("ideal", "noise")
@@ -214,27 +214,47 @@ for (metric in metrics) {
     if (!is.null(val)) groups[[paste0("SelectQAOA_", sel_config)]] <- val
   }
   
-  # ANOVA + Tukey
   if (length(groups) < 2) next
-  df <- data.frame(Value = unlist(groups),
-                   Group = rep(names(groups), times = sapply(groups, length)))
-  aov_model <- aov(Value ~ Group, data = df)
-  print(summary(aov_model))
-  tukey <- TukeyHSD(aov_model)
-  tukey_df <- as.data.frame(tukey$Group)
-  
-  comparisons <- rownames(tukey_df)
-  
-  # Calcolo d per ogni coppia
-  for (comp in comparisons) {
-    comps <- unlist(strsplit(comp, "-"))
-    g1 <- comps[1]
-    g2 <- comps[2]
-    if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
-    d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
-    p <- tukey_df[comp, "p adj"]
-    cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | d=%.3f\n",
-                dataset, metric, g1, g2, tukey_df[comp, "p adj"], tukey_df[comp, "p adj"], d))
+
+  if (metric == "final_effectivenesses") {
+    # ANOVA + Tukey HSD
+    df <- data.frame(Value = unlist(groups),
+                     Group = rep(names(groups), times = sapply(groups, length)))
+    aov_model <- aov(Value ~ Group, data = df)
+    print(summary(aov_model))
+    tukey <- TukeyHSD(aov_model)
+    tukey_df <- as.data.frame(tukey$Group)
+    comparisons <- rownames(tukey_df)
+
+    for (comp in comparisons) {
+      comps <- unlist(strsplit(comp, "-"))
+      g1 <- comps[1]
+      g2 <- comps[2]
+      if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
+      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
+      p <- tukey_df[comp, "p adj"]
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | d=%.3f\n",
+                  dataset, metric, g1, g2, p, p, d))
+    }
+  } else if (metric == "final_test_suite_costs") {
+    # Kruskal-Wallis + Dunn Test
+    flat_values <- unlist(groups)
+    group_labels <- rep(names(groups), times = sapply(groups, length))
+
+    kw <- kruskal.test(flat_values ~ as.factor(group_labels))
+    print(kw)
+
+    dunn <- dunnTest(flat_values ~ as.factor(group_labels), method = "bonferroni")$res
+    for (i in 1:nrow(dunn)) {
+      row <- dunn[i, ]
+      comps <- unlist(strsplit(as.character(row$Comparison), " - "))
+      g1 <- comps[1]
+      g2 <- comps[2]
+      if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
+      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | z=%.4f | unAdj.p=%.4f | adj.p=%.4f | d=%.3f\n",
+                  dataset, metric, g1, g2, row$Z, row$P.unadj, row$P.adj, d))
+    }
   }
 }
 
