@@ -69,8 +69,8 @@ for (config_name in names(configs)) {
     print(kruskal_test)
 
     # Perform Dunn's test
-    dunn_test <- dunnTest(value ~ group, data = data, method = "bh")
-    cat("Dunn's Test (Benjamini-Hochberg correction):\n")
+    dunn_test <- dunnTest(value ~ group, data = data, method = "bonferroni")
+    cat("Dunn's Test (Bonferroni correction):\n")
     print(dunn_test$res)  # Print only p-values
 
     # Compute A12 for each pair of groups

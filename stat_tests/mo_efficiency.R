@@ -155,7 +155,7 @@ for (program in names(execution_times)) {
   
   # Perform Dunn's test
   dunn_test <- tryCatch({
-    dunnTest(value ~ group, data = data, method = "bh")
+    dunnTest(value ~ group, data = data, method = "bonferroni")
   }, error = function(e) {
     warning("Dunn's test could not be performed: ", e$message)
     return(NULL)
