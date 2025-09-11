@@ -33,7 +33,7 @@ for (program in names(data)) {
     rep = factor(rep(rep(reps, each = 10), times = 1))
   )
 
-  if (program %in% c("gsdtsr", "iofrol")) {
+  if (program %in% c("gsdtsr", "iofrol", "paintcontrol", "elevator", "elevator2")) {
     # ANOVA
     aov_res <- aov(value ~ rep, data = df)
     print(summary(aov_res))

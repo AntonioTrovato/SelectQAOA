@@ -9,7 +9,7 @@ library(this.path)
 setwd(this.dir())
 
 # Configurazioni
-selectqaoa_configs <- c("statevector_sim", "aer_sim", "fake_vigo", "fake_vigo_zne",
+selectqaoa_configs <- c("statevector_sim", "aer_sim", "fake_brisbane",
                         "depolarizing_sim/01", "depolarizing_sim/02", "depolarizing_sim/05")
 igdec_qaoa_elevator2_configs <- c("ideal/qaoa_1/elevator_three", "noise/qaoa_1/elevator_one")
 igdec_configs <- c("ideal", "noise")
@@ -169,9 +169,9 @@ for (metric in metrics) {
       g1 <- comps[1]
       g2 <- comps[2]
       if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
-      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
+      d <- round(a12(groups[[g1]], groups[[g2]]), 3)
       p <- tukey_df[comp, "p adj"]
-      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | d=%.3f\n",
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | a12=%.3f\n",
                   dataset, metric, g1, g2, p, p, d))
     }
   } else if (metric == "final_test_suite_costs") {
@@ -189,8 +189,8 @@ for (metric in metrics) {
       g1 <- comps[1]
       g2 <- comps[2]
       if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
-      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
-      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | z=%.4f | unAdj.p=%.4f | adj.p=%.4f | d=%.3f\n",
+      d <- round(a12(groups[[g1]], groups[[g2]]), 3)
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | z=%.4f | unAdj.p=%.4f | adj.p=%.4f | a12=%.3f\n",
                   dataset, metric, g1, g2, row$Z, row$P.unadj, row$P.adj, d))
     }
   }
@@ -241,13 +241,13 @@ for (metric in metrics) {
     for (j in (i+1):length(groups)) {
       g1 <- names(groups)[i]
       g2 <- names(groups)[j]
-      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
+      d <- round(a12(groups[[g1]], groups[[g2]]), 3)
       p_row <- dunn[dunn$Comparison == paste(g1, "-", g2), ]
       if (nrow(p_row) == 0) {
         p_row <- dunn[dunn$Comparison == paste(g2, "-", g1), ]
       }
       if (nrow(p_row) > 0) {
-        cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | d=%.3f\n",
+        cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | a12=%.3f\n",
                     dataset, metric, g1, g2, p_row$P.unadj, p_row$P.adj, d))
       }
     }
@@ -302,9 +302,9 @@ for (metric in metrics) {
       g1 <- comps[1]
       g2 <- comps[2]
       if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
-      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
+      d <- round(a12(groups[[g1]], groups[[g2]]), 3)
       p <- tukey_df[comp, "p adj"]
-      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | d=%.3f\n",
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | p=%.4f | adj.p=%.4f | a12=%.3f\n",
                   dataset, metric, g1, g2, p, p, d))
     }
   } else if (metric == "final_test_suite_costs") {
@@ -322,8 +322,8 @@ for (metric in metrics) {
       g1 <- comps[1]
       g2 <- comps[2]
       if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
-      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
-      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | z=%.4f | unAdj.p=%.4f | adj.p=%.4f | d=%.3f\n",
+      d <- round(a12(groups[[g1]], groups[[g2]]), 3)
+      cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | z=%.4f | unAdj.p=%.4f | adj.p=%.4f | a12=%.3f\n",
                   dataset, metric, g1, g2, row$Z, row$P.unadj, row$P.adj, d))
     }
   }
