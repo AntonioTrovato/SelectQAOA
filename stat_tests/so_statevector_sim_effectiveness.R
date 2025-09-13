@@ -47,8 +47,8 @@ for (program in names(data)) {
       for (j in (i+1):length(reps)) {
         group1 <- as.numeric(data[[program]][[reps[i]]])
         group2 <- as.numeric(data[[program]][[reps[j]]])
-        d <- cohen_d(group1, group2)
-        cat(sprintf("Cohen's d (%s - %s): %.3f\n", reps[i], reps[j], d))
+        d <- a12(group1, group2)
+        cat(sprintf("A12 (%s - %s): %.3f\n", reps[i], reps[j], d))
       }
     }
 
