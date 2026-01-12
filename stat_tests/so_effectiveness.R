@@ -322,7 +322,7 @@ for (metric in metrics) {
       g1 <- comps[1]
       g2 <- comps[2]
       if (!(g1 %in% names(groups)) || !(g2 %in% names(groups))) next
-      d <- round(a12(groups[[g1]], groups[[g2]]), 3)
+      d <- round(cohen_d(groups[[g1]], groups[[g2]]), 3)
       cat(sprintf("Dataset: %s | Metric: %s | %s vs %s | z=%.4f | unAdj.p=%.4f | adj.p=%.4f | a12=%.3f\n",
                   dataset, metric, g1, g2, row$Z, row$P.unadj, row$P.adj, d))
     }
