@@ -27,7 +27,7 @@ from qiskit_optimization.translators import from_docplex_mp
 # CONFIG
 # ============================================================
 
-RUN_LABEL = "elevator_o3"
+RUN_LABEL = "elevator_three"
 DATASET_FILENAME = "elevator"   # cambia qui solo se serve un csv diverso
 NUM_EXPERIMENT = 10
 REPS = 1
