@@ -33,6 +33,7 @@ import random
 import pandas as pd
 import os
 
+num_experiments = 30
 
 class TestCaseOptimization(OptimizationApplication):
     """Optimization application for the "knapsack problem" [1].
@@ -249,7 +250,7 @@ def print_result(result, testcase):
 def plot(fval_list, reps, file_name, problem_size):
     plt.plot(fval_list)
     plt.ylabel('fval')
-    plt.savefig("../results/igdec_qaoa/ideal/qaoa_"+str(reps)+"/" + file_name + "/size_" + str(problem_size) + "/" + str(10)+"/fval_trend.png")
+    plt.savefig("../results/igdec_qaoa/ideal/qaoa_"+str(reps)+"/" + file_name + "/size_" + str(problem_size) + "/" + str(num_experiments)+"/fval_trend.png")
 
 def scatter_merge(solution, data):
     time = []
@@ -307,7 +308,7 @@ def save_trained_circuits_and_initial_solutions():
     base_output_dir = "trained_qaoa_circuits/igdec_qaoa"
     os.makedirs(base_output_dir, exist_ok=True)
 
-    num_experiment = 10
+    num_experiment = 30
     reps = 1
     problem_size = 7
 
@@ -368,7 +369,7 @@ def save_trained_circuits_and_initial_solutions():
 
             circuits_metadata = []
 
-            while count < 10:
+            while count < num_experiment:
                 df_time = 0
                 qaoa_time_total = 0
                 exe_count = 0
@@ -567,7 +568,7 @@ def run_hardware_like_from_saved_circuits():
     results_dir = "../results/igdec_qaoa/piastq"
     os.makedirs(results_dir, exist_ok=True)
 
-    num_experiment = 10
+    num_experiment = 30
     problem_size = 7
 
     sampling_sampler = AerSampler()
@@ -619,7 +620,7 @@ def run_hardware_like_from_saved_circuits():
             index_begin = 0
             index_end = problem_size
 
-            while count < 10:
+            while count < num_experiment:
                 qaoa_time_total = 0
                 itr_num += 1
 

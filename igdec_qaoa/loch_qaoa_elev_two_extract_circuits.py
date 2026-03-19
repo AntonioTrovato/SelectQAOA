@@ -29,10 +29,10 @@ from qiskit_optimization.translators import from_docplex_mp
 
 RUN_LABEL = "elevator_two"
 DATASET_FILENAME = "elevator"   # cambia qui solo se serve un csv diverso
-NUM_EXPERIMENT = 10
+NUM_EXPERIMENT = 30
 REPS = 1
 PROBLEM_SIZE = 7
-NUM_ITERATIONS = 10
+NUM_ITERATIONS = 30
 
 # ============================================================
 # PROBLEM DEFINITION
@@ -625,4 +625,4 @@ def run_hardware_like_from_saved_circuits():
 
 if __name__ == "__main__":
     save_trained_circuits_and_initial_solutions()
-    run_hardware_like_from_saved_circuits()
+    #run_hardware_like_from_saved_circuits()

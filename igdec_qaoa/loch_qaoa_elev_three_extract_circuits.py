@@ -29,10 +29,10 @@ from qiskit_optimization.translators import from_docplex_mp
 
 RUN_LABEL = "elevator_three"
 DATASET_FILENAME = "elevator"   # cambia qui solo se serve un csv diverso
-NUM_EXPERIMENT = 10
+NUM_EXPERIMENT = 30
 REPS = 1
 PROBLEM_SIZE = 7
-NUM_ITERATIONS = 10
+NUM_ITERATIONS = 30
 
 # ============================================================
 # PROBLEM DEFINITION
