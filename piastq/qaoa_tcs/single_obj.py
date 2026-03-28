@@ -16,6 +16,8 @@ from scipy.stats import mannwhitneyu, shapiro
 
 from qiskit import qpy
 from qiskit_optimization import QuadraticProgram
+from qiskit_aqt_provider import AQTProvider
+from qiskit_aqt_provider.primitives import AQTSampler
 from qiskit_algorithms.optimizers import COBYLA
 from qiskit_algorithms import QAOA
 from qiskit_aer.primitives import Sampler as AerSampler
@@ -307,7 +309,12 @@ def run_circuit_with_batching(circuit, sampler):
 
     return total_counts
 
-sampling_sampler = AerSampler()
+provider = AQTProvider("ACCESS_TOKEN")
+backend = provider.get_backend("offline_simulator_no_noise")
+
+sampling_sampler = AQTSampler(backend)
+
+sampling_sampler.set_transpile_options(optimization_level=3)
 
 base_results_dir = "results/selectqaoa/piastq"
 os.makedirs(base_results_dir, exist_ok=True)

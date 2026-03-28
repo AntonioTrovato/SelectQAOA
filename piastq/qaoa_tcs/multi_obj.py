@@ -13,6 +13,9 @@ from qiskit_optimization import QuadraticProgram
 from qiskit_aer.primitives import Sampler as AerSampler
 from qiskit_optimization.converters import QuadraticProgramToQubo
 
+from qiskit_aqt_provider import AQTProvider
+from qiskit_aqt_provider.primitives import AQTSampler
+
 from sklearn.preprocessing import StandardScaler
 from scipy.cluster.hierarchy import linkage, fcluster
 from collections import defaultdict, Counter
@@ -329,7 +332,7 @@ def run_circuit_with_batching(circuit, sampler):
     total_counts = Counter()
 
     # 307 × 200
-    for _ in range(100):
+    for _ in range(307):
         sampler.options.shots = 200
         result = sampler.run([circuit]).result()
         counts = result.quasi_dists[0].binary_probabilities()
@@ -347,7 +350,12 @@ def run_circuit_with_batching(circuit, sampler):
 
     return total_counts
 
-sampling_sampler = AerSampler()
+provider = AQTProvider("ACCESS_TOKEN")
+backend = provider.get_backend("offline_simulator_no_noise")
+
+sampling_sampler = AQTSampler(backend)
+
+sampling_sampler.set_transpile_options(optimization_level=3)
 
 base_results_dir = "results/selectqaoa/piastq"
 os.makedirs(base_results_dir, exist_ok=True)

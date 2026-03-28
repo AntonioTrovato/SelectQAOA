@@ -15,6 +15,8 @@ from qiskit_aer.primitives import Sampler as AerSampler
 import json
 from qiskit import qpy
 from qiskit_optimization.algorithms import OptimizationResult
+from qiskit_aqt_provider import AQTProvider
+from qiskit_aqt_provider.primitives import AQTSampler
 from qiskit_optimization.problems.quadratic_program import QuadraticProgram
 from qiskit_optimization.translators import from_docplex_mp
 from qiskit_optimization.applications import OptimizationApplication
@@ -571,7 +573,12 @@ def run_hardware_like_from_saved_circuits():
     num_experiment = 30
     problem_size = 7
 
-    sampling_sampler = AerSampler()
+    provider = AQTProvider("ACCESS_TOKEN")
+    backend = provider.get_backend("offline_simulator_no_noise")
+
+    sampling_sampler = AQTSampler(backend)
+
+    sampling_sampler.set_transpile_options(optimization_level=3)
 
     for file_name in ["gsdtsr", "iofrol", "paintcontrol"]:
         print(f"\n========== HARDWARE-LIKE PROGRAM: {file_name} ==========")

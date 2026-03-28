@@ -21,6 +21,8 @@ from qiskit_optimization.algorithms import OptimizationResult
 from qiskit_optimization.applications import OptimizationApplication
 from qiskit_optimization.problems import QuadraticProgram
 from qiskit_optimization.translators import from_docplex_mp
+from qiskit_aqt_provider import AQTProvider
+from qiskit_aqt_provider.primitives import AQTSampler
 
 
 # ============================================================
@@ -469,7 +471,12 @@ def run_hardware_like_from_saved_circuits():
     results_dir = os.path.join("results", "igdec_qaoa", "piastq")
     os.makedirs(results_dir, exist_ok=True)
 
-    sampling_sampler = AerSampler()
+    provider = AQTProvider("ACCESS_TOKEN")
+    backend = provider.get_backend("offline_simulator_no_noise")
+
+    sampling_sampler = AQTSampler(backend)
+
+    sampling_sampler.set_transpile_options(optimization_level=3)
 
     df = pd.read_csv(
         f"../datasets/quantum_sota_datasets/{DATASET_FILENAME}.csv",
