@@ -123,7 +123,7 @@ class TCO_ElevThree(OptimizationApplication):
 
 # ── Data loaders ──────────────────────────────────────────────────────────────
 
-def load_data(program_name, dataset_dir="datasets/quantum_sota_datasets"):
+def load_data(program_name, dataset_dir="../datasets/quantum_sota_datasets"):
     path = os.path.join(dataset_dir, "elevator.csv" if "elevator" in program_name else f"{program_name}.csv")
     if program_name == "elevator":
         df = pd.read_csv(path, dtype={"cost": int, "input_div": float})
