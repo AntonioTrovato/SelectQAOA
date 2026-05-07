@@ -281,7 +281,7 @@ def bootstrap_confidence_interval(data, num_samples, confidence_alpha=0.95):
     return lower_bound, upper_bound
 
 
-bootqa_alphas = {"gsdtsr": 0.2, "paintcontrol": 0.80, "iofrol": 0.82, "elevator": 0.50, "elevator2": (0.96, 0.96, 0.96)}
+bootqa_alphas = {"gsdtsr": 0.3745401188473625, "paintcontrol": 0.7319939418114051, "iofrol": 0.7319939418114051, "elevator": 0.3745401188473625, "elevator2": (0.13949386065204183, 0.29214464853521815, 0.3663618432936917)}
 run_times_dictionary = {"gsdtsr": [], "paintcontrol": [], "iofrol": [], "elevator": [], "elevator2": []}
 subsuites_results = {}
 ideal_sampler = AerSampler()
@@ -430,7 +430,7 @@ for bootqa_program in bootqa_programs:
         with open(file_path_subsuites, "w") as file2:
             json.dump(subsuites_results, file2)
 
-bootqa_alphas = {"gsdtsr": 0.2, "paintcontrol": 0.80, "iofrol": 0.82, "elevator": 0.50, "elevator2": (0.96, 0.96, 0.96)}
+bootqa_alphas = {"gsdtsr": 0.3745401188473625, "paintcontrol": 0.7319939418114051, "iofrol": 0.7319939418114051, "elevator": 0.3745401188473625, "elevator2": (0.13949386065204183, 0.29214464853521815, 0.3663618432936917)}
 run_times_dictionary = {"gsdtsr": [], "paintcontrol": [], "iofrol": [], "elevator": [], "elevator2": []}
 subsuites_results = {}
 sampling_noise_sampler = AerSampler(backend_options={}, run_options={"shots": 2048})
@@ -575,7 +575,7 @@ for bootqa_program in bootqa_programs:
     with open(file_path_subsuites, "w") as file2:
         json.dump(subsuites_results, file2)
 
-bootqa_alphas = {"gsdtsr": 0.2, "paintcontrol": 0.80, "iofrol": 0.82, "elevator": 0.50, "elevator2": (0.96, 0.96, 0.96)}
+bootqa_alphas = {"gsdtsr": 0.3745401188473625, "paintcontrol": 0.7319939418114051, "iofrol": 0.7319939418114051, "elevator": 0.3745401188473625, "elevator2": (0.13949386065204183, 0.29214464853521815, 0.3663618432936917)}
 run_times_dictionary = {"gsdtsr": [], "paintcontrol": [], "iofrol": [], "elevator": [], "elevator2": []}
 subsuites_results = {}
 noise_model = NoiseModel.from_backend(FakeBrisbane())
@@ -719,7 +719,7 @@ for bootqa_program in bootqa_programs:
     with open(file_path_subsuites, "w") as file2:
         json.dump(subsuites_results, file2)
 
-bootqa_alphas = {"gsdtsr": 0.2, "paintcontrol": 0.80, "iofrol": 0.82, "elevator": 0.50, "elevator2": (0.96, 0.96, 0.96)}
+bootqa_alphas = {"gsdtsr": 0.3745401188473625, "paintcontrol": 0.7319939418114051, "iofrol": 0.7319939418114051, "elevator": 0.3745401188473625, "elevator2": (0.13949386065204183, 0.29214464853521815, 0.3663618432936917)}
 run_times_dictionary = {"gsdtsr": [], "paintcontrol": [], "iofrol": [], "elevator": [], "elevator2": []}
 params = {}
 subsuites_results = {}
@@ -874,7 +874,7 @@ for bootqa_program in bootqa_programs:
     with open(file_path_subsuites, "w") as file2:
         json.dump(subsuites_results, file2)
 
-bootqa_alphas = {"gsdtsr": 0.2, "paintcontrol": 0.80, "iofrol": 0.82, "elevator": 0.50, "elevator2": (0.96, 0.96, 0.96)}
+bootqa_alphas = {"gsdtsr": 0.3745401188473625, "paintcontrol": 0.7319939418114051, "iofrol": 0.7319939418114051, "elevator": 0.3745401188473625, "elevator2": (0.13949386065204183, 0.29214464853521815, 0.3663618432936917)}
 run_times_dictionary = {"gsdtsr": [], "paintcontrol": [], "iofrol": [], "elevator": [], "elevator2": []}
 subsuites_results = {}
 noise_model = NoiseModel()
@@ -1024,7 +1024,7 @@ for bootqa_program in bootqa_programs:
     with open(file_path_subsuites, "w") as file2:
         json.dump(subsuites_results, file2)
 
-bootqa_alphas = {"gsdtsr": 0.2, "paintcontrol": 0.80, "iofrol": 0.82, "elevator": 0.50, "elevator2": (0.96, 0.96, 0.96)}
+bootqa_alphas = {"gsdtsr": 0.3745401188473625, "paintcontrol": 0.7319939418114051, "iofrol": 0.7319939418114051, "elevator": 0.3745401188473625, "elevator2": (0.13949386065204183, 0.29214464853521815, 0.3663618432936917)}
 run_times_dictionary = {"gsdtsr": [], "paintcontrol": [], "iofrol": [], "elevator": [], "elevator2": []}
 subsuites_results = {}
 noise_model = NoiseModel()
