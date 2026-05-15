@@ -146,7 +146,7 @@ def print_diet(sample,data):
             # print(t[1:]+'. ',end=' ')
             # print('time: '+str(foods[t]['time']), end=', ')
             # print('rate: '+str(foods[t]['rate']), end='\n')
-    fval = (1 / 2) * pow(sum(cost_list) / sum(data['cost']), 2) + (1 / 2) * pow((sum(div_list) - sum(data["input_div"])) / (sum(data["input_div"])), 2)
+    fval = (0.020584494295802447) * pow(sum(cost_list) / sum(data['cost']), 2) + (0.9699098521619943) * pow((sum(div_list) - sum(data["input_div"])) / (sum(data["input_div"])), 2)
     # print("Total time: " + str(total_time))
     # print("Total rate: " + str(total_rate))
 #     print("Fval value:" + str(fval))
@@ -189,7 +189,7 @@ def OrderByImpactNum(best_solution, df, best_energy):
     # rate_sum_con = np.full((len(best_solution), 1), rate_sum)
     cost_obj = matrix.dot(cost_matrix)
     div_obj = matrix.dot(div_matrix) - div_sum
-    obj = (1/2)*(cost_obj/cost_sum)**2 + (1/2)*(div_obj/div_sum)**2 - best_energy
+    obj = (0.020584494295802447)*(cost_obj/cost_sum)**2 + (0.9699098521619943)*(div_obj/div_sum)**2 - best_energy
     # Get the sorted indices
     sorted_indices = np.argsort(obj, axis=0)
 
@@ -305,7 +305,7 @@ if __name__ == '__main__':
         if problem_size>0.15*len(df):
             exe_count += 1
             case_list = impact_order[index_begin:index_end]
-            qubo, testcase = create_qubo(cost, div, 1 / 2, 1 / 2, case_list, solution)
+            qubo, testcase = create_qubo(cost, div, 0.020584494295802447,0.9699098521619943, case_list, solution)
             result, qaoa_time = run_alg(qubo, reps)
 
             eigenstate = result.eigenstate
@@ -337,7 +337,7 @@ if __name__ == '__main__':
             while index_end <= 0.15 * len(df):
                 exe_count += 1
                 case_list = impact_order[index_begin:index_end]
-                qubo, testcase = create_qubo(cost, div, 1 / 2, 1 / 2, case_list, solution)
+                qubo, testcase = create_qubo(cost, div,0.020584494295802447,0.9699098521619943, case_list, solution)
                 result, qaoa_time = run_alg(qubo, reps)
 
                 eigenstate = result.eigenstate

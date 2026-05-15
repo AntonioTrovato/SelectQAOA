@@ -135,7 +135,7 @@ def get_data(data):
     frs = data["rate"].values.tolist()
     return times, frs
 
-def print_diet(sample,data):
+def print_diet(file_name,sample,data):
     count = 0
     total_time = 0
     total_rate = 0
@@ -151,33 +151,29 @@ def print_diet(sample,data):
             # print('time: '+str(foods[t]['time']), end=', ')
             # print('rate: '+str(foods[t]['rate']), end='\n')
             count += 1
-    fval = (1 / 3) * pow(sum(time_list) / sum(data['time']), 2) + (1 / 3) * pow((sum(rate_list) - sum(data["rate"]) + 1e-20) / (sum(data["rate"])+1e-20), 2) + (1 / 3) * pow(count / len(data), 2)
+    w1 = 0
+    w2 = 0
+    w3 = 0
+    if file_name == "gsdtsr":
+        w1 = 0.5986584841970366
+        w2 = 0.15601864044243652
+        w3 = 0.15599452033620265
+    elif file_name == "iofrol":
+        w1 = 0.7080725777960455
+        w2 = 0.020584494295802447
+        w3 = 0.9699098521619943
+    elif file_name == "paintcontrol":
+        w1 = 0.8324426408004217
+        w2 = 0.21233911067827616
+        w3 = 0.18182496720710062
+    fval = (w1) * pow(sum(time_list) / sum(data['time']), 2) + (w2) * pow((sum(rate_list) - sum(data["rate"]) + 1e-20) / (sum(data["rate"])+1e-20), 2) + (w3) * pow(count / len(data), 2)
     # print("Total time: " + str(total_time))
     # print("Total rate: " + str(total_rate))
 #     print("Fval value:" + str(fval))
 #     print("Number: "+str(count))
     return fval
 
-def OrderByImpact(best_solution, df, best_energy):
-    impact_values = {}
-    for case in range(len(best_solution)):
-        if best_solution[case] == 1:
-            temp = best_solution.copy()
-            temp[case] = 0
-            impact_values[case] = 1
-            impact_values[case] = print_diet(temp, df) - best_energy
-        elif best_solution[case] == 0:
-            temp = best_solution.copy()
-            temp[case]=1
-            impact_values[case] = print_diet(temp, df) - best_energy
-    print(impact_values)
-    impact_values = sorted(impact_values.items(), key = lambda kv:(kv[1], kv[0]))
-    impact_list = []
-    for case in impact_values:
-        impact_list.append(case[0])
-    return impact_list
-
-def OrderByImpactNum(best_solution, df, best_energy):
+def OrderByImpactNum(file_name, best_solution, df, best_energy):
     num = len(best_solution)
     time_array = list(df["time"])
     rate_array = list(df["rate"])
@@ -197,7 +193,22 @@ def OrderByImpactNum(best_solution, df, best_energy):
     time_obj = matrix.dot(time_matrix)
     rate_obj = matrix.dot(rate_matrix) - rate_sum + 1e-20
     num_obj = matrix.dot(num_matrix)
-    obj = (1/3)*(time_obj/time_sum)**2 + (1/3)*(rate_obj/(rate_sum+1e-20))**2 + (1/3)*((num_obj)/len(best_solution))**2 - best_energy
+    w1 = 0
+    w2 = 0
+    w3 = 0
+    if file_name == "gsdtsr":
+        w1 = 0.5986584841970366
+        w2 = 0.15601864044243652
+        w3 = 0.15599452033620265
+    elif file_name == "iofrol":
+        w1 = 0.7080725777960455
+        w2 = 0.020584494295802447
+        w3 = 0.9699098521619943
+    elif file_name == "paintcontrol":
+        w1 = 0.8324426408004217
+        w2 = 0.21233911067827616
+        w3 = 0.18182496720710062
+    obj = (w1)*(time_obj/time_sum)**2 + (w2)*(rate_obj/(rate_sum+1e-20))**2 + (w3)*((num_obj)/len(best_solution))**2 - best_energy
     # Get the sorted indices
     sorted_indices = np.argsort(obj, axis=0)
 
@@ -259,9 +270,9 @@ def scatter_merge(solution, data):
     plt.scatter(time, rate)
     plt.show()
 
-def get_initial_fval(length):
+def get_initial_fval(file_name,length):
     initial_values = [random.choice([0, 1]) for _ in range(length)]
-    fval = print_diet(initial_values, df)
+    fval = print_diet(file_name,initial_values, df)
     best_solution=initial_values
     best_energy=fval
     return best_solution, best_energy
@@ -272,14 +283,29 @@ if __name__ == '__main__':
     num_experiment = 10
     reps = 1
     problem_size = 7
+    w1 = 0
+    w2 = 0
+    w3 = 0
     for file_name in ["gsdtsr","iofrol","paintcontrol"]:
+        if file_name == "gsdtsr":
+            w1 = 0.5986584841970366
+            w2 = 0.15601864044243652
+            w3 = 0.15599452033620265
+        elif file_name == "iofrol":
+            w1 = 0.7080725777960455
+            w2 = 0.020584494295802447
+            w3 = 0.9699098521619943
+        elif file_name == "paintcontrol":
+            w1 = 0.8324426408004217
+            w2 = 0.21233911067827616
+            w3 = 0.18182496720710062
         df = pd.DataFrame()
         df = pd.read_csv("../datasets/quantum_sota_datasets/"+file_name+".csv", dtype={"time": float, "rate": float})
         length = len(df)
-        best_solution, best_energy = get_initial_fval(length)
+        best_solution, best_energy = get_initial_fval(file_name,length)
         best_itr = 0
         start_impact = time.time()
-        impact_order = OrderByImpactNum(best_solution, df, best_energy)
+        impact_order = OrderByImpactNum(file_name, best_solution, df, best_energy)
         end_impact = time.time()
         impact_time = end_impact - start_impact
         index_end = problem_size
@@ -313,7 +339,7 @@ if __name__ == '__main__':
             if problem_size>0.15*len(df):
                 exe_count += 1
                 case_list = impact_order[index_begin:index_end]
-                qubo, testcase = create_qubo(times, frs, 1 / 3, 1 / 3, 1 / 3, case_list, solution)
+                qubo, testcase = create_qubo(times, frs, w1, w2, w3, case_list, solution)
                 result, qaoa_time = run_alg(qubo, reps)
 
                 eigenstate = result.eigenstate
@@ -345,7 +371,7 @@ if __name__ == '__main__':
                 while index_end <= 0.15 * len(df):
                     exe_count += 1
                     case_list = impact_order[index_begin:index_end]
-                    qubo, testcase = create_qubo(times, frs, 1 / 3, 1 / 3, 1 / 3, case_list, solution)
+                    qubo, testcase = create_qubo(times, frs, w1, w2, w3, case_list, solution)
                     result, qaoa_time = run_alg(qubo, reps)
 
                     eigenstate = result.eigenstate
@@ -399,7 +425,7 @@ if __name__ == '__main__':
             best_itr_rates.append(df.loc[np.array(best_solution) == 1, "rate"].sum())
 
             start_impact= time.time()
-            impact_order = OrderByImpactNum(solution, df, energy)
+            impact_order = OrderByImpactNum(file_name, solution, df, energy)
             end_impact = time.time()
             impact_time = end_impact - start_impact
             print("best:" + str(best_energy))
