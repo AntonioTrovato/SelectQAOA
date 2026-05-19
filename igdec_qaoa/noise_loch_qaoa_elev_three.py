@@ -171,7 +171,7 @@ def print_diet(sample,data):
             # print(t[1:]+'. ',end=' ')
             # print('time: '+str(foods[t]['time']), end=', ')
             # print('rate: '+str(foods[t]['rate']), end='\n')
-    fval = (1 / 3) * pow(sum(cost_list) / sum(data['cost']), 2) + (1 / 3) * pow((sum(pcount_list) - sum(data["pcount"])) / (sum(data["pcount"])), 2) + (1 / 3) * pow((sum(dist_list) - sum(data['dist'])) / (sum(data["dist"])), 2)
+    fval = (0.05808361216819946) * pow(sum(cost_list) / sum(data['cost']), 2) + (0.8661761457749352) * pow((sum(pcount_list) - sum(data["pcount"])) / (sum(data["pcount"])), 2) + (0.6011150117432088) * pow((sum(dist_list) - sum(data['dist'])) / (sum(data["dist"])), 2)
     # print("Total time: " + str(total_time))
     # print("Total rate: " + str(total_rate))
 #     print("Fval value:" + str(fval))
@@ -219,7 +219,7 @@ def OrderByImpactNum(best_solution, df, best_energy):
     cost_obj = matrix.dot(cost_matrix)
     pcount_obj = matrix.dot(pcount_matrix) - pcount_sum
     dist_obj = matrix.dot(dist_matrix) - dist_sum
-    obj = (1/3)*(cost_obj/cost_sum)**2 + (1/3)*(pcount_obj/pcount_sum)**2 + (1/3)*(dist_obj/dist_sum)**2 - best_energy
+    obj = (0.05808361216819946)*(cost_obj/cost_sum)**2 + (0.8661761457749352)*(pcount_obj/pcount_sum)**2 + (0.6011150117432088)*(dist_obj/dist_sum)**2 - best_energy
     print(obj)
     # Get the sorted indices
     sorted_indices = np.argsort(obj, axis=0)
@@ -365,7 +365,7 @@ if __name__ == '__main__':
         if problem_size>0.15*len(df):
             exe_count += 1
             case_list = impact_order[index_begin:index_end]
-            qubo, testcase = create_qubo(cost, pcount, dist, 1 / 3, 1 / 3, 1 / 3, case_list, solution)
+            qubo, testcase = create_qubo(cost, pcount, dist, 0.05808361216819946,0.8661761457749352,0.6011150117432088, case_list, solution)
             result, qaoa_time = run_alg(qubo, reps)
 
             eigenstate = result.eigenstate
@@ -397,7 +397,7 @@ if __name__ == '__main__':
             while index_end <= 0.15 * len(df):
                 exe_count += 1
                 case_list = impact_order[index_begin:index_end]
-                qubo, testcase = create_qubo(cost, pcount, dist, 1 / 3, 1 / 3, 1 / 3, case_list, solution)
+                qubo, testcase = create_qubo(cost, pcount, dist, 0.05808361216819946,0.8661761457749352,0.6011150117432088, case_list, solution)
                 result, qaoa_time = run_alg(qubo, reps)
 
                 eigenstate = result.eigenstate
