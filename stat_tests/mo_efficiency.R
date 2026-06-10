@@ -84,8 +84,7 @@ for (program in programs) {
 qaoa_configs <- list(
   statevector_sim = "statevector_sim",
   aer_sim = "aer_sim",
-  fake_vigo = "fake_vigo",
-  fake_vigo_zne = "fake_vigo_zne",
+  fake_vigo = "fake_brisbane",
   depolarizing_1 = "depolarizing_sim/01",
   depolarizing_2 = "depolarizing_sim/02",
   depolarizing_5 = "depolarizing_sim/05"
