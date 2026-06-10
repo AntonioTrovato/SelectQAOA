@@ -9,7 +9,11 @@
 
 library(jsonlite)
 library(FSA)        # dunnTest
+library(this.path)
 
+
+setwd(this.dir())
+sink("output.txt", split = TRUE)  # <-- add this line
 # -----------------------------------------------------------------------------
 # CONFIG
 # -----------------------------------------------------------------------------
@@ -231,3 +235,4 @@ cat("\n")
 cat(strrep("=", 72), "\n")
 cat("Done.\n")
 cat(strrep("=", 72), "\n")
+sink()

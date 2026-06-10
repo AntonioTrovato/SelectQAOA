@@ -21,11 +21,12 @@ read_qaoa_times <- function(program_name, config) {
   
   len_qaoa <- length(qaoa_times)
   
-  # Compute qaoa_times2 (10 values averaging over each segment)
-  step_size <- len_qaoa / 10
+  clusters_per_run <- c(sed = 77, gzip = 61, grep = 139, flex = 105)
+  n_clusters <- clusters_per_run[program]
+  
   qaoa_times2 <- sapply(0:9, function(i) {
-    start_idx <- i * step_size
-    end_idx <- start_idx + step_size - 1
+    start_idx <- i * n_clusters + 1
+    end_idx   <- (i + 1) * n_clusters
     mean(qaoa_times[start_idx:end_idx])
   })
   
@@ -131,23 +132,8 @@ for (program in names(execution_times)) {
     group = rep(names(exec_data), each = 10)
   )
   
-  # Perform pairwise Kolmogorov-Smirnov test
   group_list <- split(data$value, data$group)
-  ks_results <- data.frame()
   
-  for (i in 1:(length(group_list) - 1)) {
-    for (j in (i + 1):length(group_list)) {
-      ks_test <- ks.test(group_list[[i]], group_list[[j]])
-      ks_results <- rbind(ks_results, 
-                          data.frame(Group1 = names(group_list)[i], 
-                                     Group2 = names(group_list)[j], 
-                                     Statistic = ks_test$statistic, 
-                                     P_Value = ks_test$p.value))
-    }
-  }
-  
-  cat("\nKolmogorov-Smirnov Test Results:\n")
-  print(ks_results)
   
   # Perform Kruskal-Wallis test
   kruskal_test <- kruskal.test(value ~ group, data = data)
