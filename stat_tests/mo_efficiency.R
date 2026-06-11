@@ -27,7 +27,7 @@ read_qaoa_times <- function(program_name, config) {
   qaoa_times2 <- sapply(0:9, function(i) {
     start_idx <- i * n_clusters + 1
     end_idx   <- (i + 1) * n_clusters
-    mean(qaoa_times[start_idx:end_idx])
+    sum(qaoa_times[start_idx:end_idx]) 
   })
   
   return(qaoa_times2)

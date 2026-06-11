@@ -26,6 +26,14 @@ clusters_per_dataset <- c(
   elevator2   = 872
 )
 
+igdec_multiplier <- c(
+  gsdtsr       = 794,
+  paintcontrol = 13,
+  iofrol       = 278,
+  elevator     = 275,
+  elevator2    = 275
+)
+
 selectqaoa_configs <- c(
   "statevector_sim", "aer_sim", "fake_brisbane",   # was fake_vigo
   "depolarizing_sim/01", "depolarizing_sim/02", "depolarizing_sim/05"
@@ -60,7 +68,7 @@ for (dataset in datasets) {
     qaoa_means <- sapply(0:9, function(i) {
       start_idx <- i * n_clusters + 1
       end_idx   <- (i + 1) * n_clusters
-      mean(qaoa_times[start_idx:end_idx])
+      sum(qaoa_times[start_idx:end_idx])
     })
     
     key <- paste0("SelectQAOA_", config)
@@ -75,7 +83,7 @@ for (dataset in datasets) {
       if (!file.exists(file_path)) next
       exec_times <- fromJSON(read.csv(file_path)[["execution_times"]][1])
       key <- paste0("IgDecQAOA_", config)
-      all_lists[[key]] <- exec_times
+      all_lists[[key]] <- exec_times * igdec_multiplier[dataset]
       names_lists      <- c(names_lists, key)
     }
   } else {
@@ -88,7 +96,7 @@ for (dataset in datasets) {
       if (!file.exists(file_path)) next
       exec_times <- fromJSON(read.csv(file_path)[["execution_times"]][1])
       key <- paste0("IgDecQAOA_", gsub("/", "_", config), dataset)
-      all_lists[[key]] <- exec_times
+      all_lists[[key]] <- exec_times * igdec_multiplier[dataset]
       names_lists      <- c(names_lists, key)
     }
   }
@@ -104,8 +112,9 @@ for (dataset in datasets) {
     
     file_bootqa <- paste0("../results/bootqa/", dataset, ".csv")
     if (file.exists(file_bootqa)) {
+      bootqa_multiplier <- c(gsdtsr = 20, paintcontrol = 30)
       val <- fromJSON(read.csv(file_bootqa)[["exectution_times.ms."]][1])
-      all_lists[["BootQA"]] <- val
+      all_lists[["BootQA"]] <- val * bootqa_multiplier[dataset]
       names_lists <- c(names_lists, "BootQA")
     }
   }
