@@ -333,7 +333,7 @@ if __name__ == "__main__":
     programs = ["gsdtsr", "iofrol", "paintcontrol", "elevator", "elevator2"]
     reps = 1
     n_trials = 10
-    n_experiments = 3   # increase to 10 for final eval
+    n_experiments = 3
 
     output_dir = "../results/igdec_qaoa/ideal"
     os.makedirs(output_dir, exist_ok=True)
