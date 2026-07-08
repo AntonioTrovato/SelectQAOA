@@ -212,7 +212,7 @@ for sir_program in sir_programs:
     ax.set_title("Test Case Clustering Visualization")
 
     # Display the plot
-    plt.show()
+    #plt.show()
 
 print(clusters_dictionary)
 
