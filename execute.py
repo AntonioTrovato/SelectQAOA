@@ -385,6 +385,7 @@ for sir_program in sir_programs:
                 else:
                     raise ValueError(f"Unsupported eigenstate key type: {type(most_likely)}")
 
+                f_value = qubo.objective.evaluate(bitstring)
                 indexes_selected_tests = [index for index, value in enumerate(bitstring) if value == 1]
                 print("Indexes of selected tests to convert. " + str(indexes_selected_tests))
                 selected_tests = []
@@ -568,6 +569,7 @@ for sir_program in sir_programs:
             else:
                 raise ValueError(f"Unsupported eigenstate key type: {type(most_likely)}")
 
+            f_value = qubo.objective.evaluate(bitstring)
             indexes_selected_tests = [index for index, value in enumerate(bitstring) if value == 1]
             print("Indexes of selected tests to convert. " + str(indexes_selected_tests))
             selected_tests = []
@@ -663,6 +665,7 @@ for sir_program in sir_programs:
             else:
                 raise ValueError(f"Unsupported eigenstate key type: {type(most_likely)}")
 
+            f_value = qubo.objective.evaluate(bitstring)
             indexes_selected_tests = [index for index, value in enumerate(bitstring) if value == 1]
             print("Indexes of selected tests to convert. " + str(indexes_selected_tests))
             selected_tests = []
@@ -758,6 +761,7 @@ for sir_program in sir_programs:
             else:
                 raise ValueError(f"Unsupported eigenstate key type: {type(most_likely)}")
 
+            f_value = qubo.objective.evaluate(bitstring)
             indexes_selected_tests = [index for index, value in enumerate(bitstring) if value == 1]
             print("Indexes of selected tests to convert. " + str(indexes_selected_tests))
             selected_tests = []
@@ -853,6 +857,7 @@ for sir_program in sir_programs:
             else:
                 raise ValueError(f"Unsupported eigenstate key type: {type(most_likely)}")
 
+            f_value = qubo.objective.evaluate(bitstring)
             indexes_selected_tests = [index for index, value in enumerate(bitstring) if value == 1]
             print("Indexes of selected tests to convert. " + str(indexes_selected_tests))
             selected_tests = []
