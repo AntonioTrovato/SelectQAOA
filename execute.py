@@ -349,7 +349,7 @@ for sir_program in sir_programs:
         # the fronts will be saved into files
         print("SIR Program: " + sir_program)
         file_path = "results/selectqaoa/statevector_sim/" + sir_program + "-data-rep-" + str(reps) + ".json"
-        subsuites_file_path = "results/selectqaoa/aer_sim/" + sir_program + "-subsuites-data.json"
+        subsuites_file_path = "results/selectqaoa/statevector_sim/" + sir_program + "-subsuites-data.json"
         subsuites_json_data = {}
         json_data = {}
         response = None
@@ -533,7 +533,7 @@ for sir_program in sir_programs:
     # the fronts will be saved into files
     print(sir_program)
     file_path = "results/selectqaoa/fake_brisbane/" + sir_program + "-data.json"
-    subsuites_file_path = "results/selectqaoa/aer_sim/" + sir_program + "-subsuites-data.json"
+    subsuites_file_path = "results/selectqaoa/fake_brisbane/" + sir_program + "-subsuites-data.json"
     subsuites_json_data = {}
     json_data = {}
     response = None
@@ -629,7 +629,7 @@ for sir_program in sir_programs:
     # the fronts will be saved into files
     print(sir_program)
     file_path = "results/selectqaoa/depolarizing_sim/01/" + sir_program + "-data.json"
-    subsuites_file_path = "results/selectqaoa/aer_sim/" + sir_program + "-subsuites-data.json"
+    subsuites_file_path = "results/selectqaoa/depolarizing_sim/01/" + sir_program + "-subsuites-data.json"
     subsuites_json_data = {}
     json_data = {}
     response = None
@@ -725,7 +725,7 @@ for sir_program in sir_programs:
     # the fronts will be saved into files
     print(sir_program)
     file_path = "results/selectqaoa/depolarizing_sim/02/" + sir_program + "-data.json"
-    subsuites_file_path = "results/selectqaoa/aer_sim/" + sir_program + "-subsuites-data.json"
+    subsuites_file_path = "results/selectqaoa/depolarizing_sim/02/" + sir_program + "-subsuites-data.json"
     subsuites_json_data = {}
     json_data = {}
     response = None
@@ -821,7 +821,7 @@ for sir_program in sir_programs:
     # the fronts will be saved into files
     print(sir_program)
     file_path = "results/selectqaoa/depolarizing_sim/05/" + sir_program + "-data.json"
-    subsuites_file_path = "results/selectqaoa/aer_sim/" + sir_program + "-subsuites-data.json"
+    subsuites_file_path = "results/selectqaoa/depolarizing_sim/05/" + sir_program + "-subsuites-data.json"
     subsuites_json_data = {}
     json_data = {}
     response = None
