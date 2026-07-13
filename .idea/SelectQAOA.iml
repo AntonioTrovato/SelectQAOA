@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/selectqaoa" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (SelectQAOA)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="/opt/anaconda3/envs/qiskit_env" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
