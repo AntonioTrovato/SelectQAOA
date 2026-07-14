@@ -1,0 +1,16 @@
+"Comparison","P_unadj","P_adj","A12"
+"depolarizing_01 - depolarizing_02",0.9518,1,NA
+"depolarizing_01 - depolarizing_05",0.521,1,NA
+"depolarizing_02 - depolarizing_05",0.4825,1,NA
+"depolarizing_01 - fake_brisbane",0.8935,1,NA
+"depolarizing_02 - fake_brisbane",0.8459,1,NA
+"depolarizing_05 - fake_brisbane",0.6115,1,NA
+"depolarizing_01 - ideal",0.0076,0.1142,NA
+"depolarizing_02 - ideal",0.0091,0.1364,NA
+"depolarizing_05 - ideal",9e-04,0.014,0.312
+"fake_brisbane - ideal",0.0051,0.076,NA
+"depolarizing_01 - sampling_noise",0.7209,1,NA
+"depolarizing_02 - sampling_noise",0.6762,1,NA
+"depolarizing_05 - sampling_noise",0.7759,1,NA
+"fake_brisbane - sampling_noise",0.8233,1,NA
+"ideal - sampling_noise",0.0025,0.0372,0.688
