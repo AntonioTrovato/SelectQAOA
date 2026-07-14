@@ -1,7 +1,7 @@
 "Simulator","P_Value","Normal"
-"depolarizing_01",4.42484556057041e-06,FALSE
-"depolarizing_02",1.24731812229031e-05,FALSE
-"depolarizing_05",1.6237546805832e-05,FALSE
-"fake_brisbane",2.68406926663499e-05,FALSE
-"ideal",5.26295256691938e-05,FALSE
-"sampling_noise",7.47262491976381e-06,FALSE
+"depolarizing_01",0.0450304100816095,FALSE
+"depolarizing_02",0.329633240276202,TRUE
+"depolarizing_05",0.171635988289341,TRUE
+"fake_brisbane",0.519528419363533,TRUE
+"ideal",0.000168679075663572,FALSE
+"sampling_noise",0.108504669223324,TRUE

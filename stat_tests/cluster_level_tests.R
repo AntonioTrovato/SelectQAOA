@@ -48,18 +48,19 @@ cohen_d <- function(x, y) {
 
 # --------------------------- data loading ---------------------------------
 
-data <- fread(INPUT_CSV)
+data <- as.data.frame(fread(INPUT_CSV))  # plain data.frame: avoids data.table's
+# NSE column-shadowing on `[` subsetting
 programs <- sort(unique(data$program))
 
 # --------------------------- main loop -------------------------------------
 
-for (program in programs) {
+for (prog in programs) {
   
   cat("\n==============================================\n")
-  cat(sprintf("Program: %s\n", program))
+  cat(sprintf("Program: %s\n", prog))
   cat("==============================================\n")
   
-  sub <- data[data$program == program, ]
+  sub <- data[data$program == prog, ]
   simulators <- sort(unique(sub$simulator))
   
   groups <- list()
@@ -92,7 +93,7 @@ for (program in programs) {
     }
     normality <- rbind(normality, data.frame(Simulator = sim, P_Value = sw_p, Normal = is_normal))
   }
-  write.csv(normality, file.path(OUTPUT_DIR, sprintf("%s_normality.csv", program)), row.names = FALSE)
+  write.csv(normality, file.path(OUTPUT_DIR, sprintf("%s_normality.csv", prog)), row.names = FALSE)
   
   all_normal <- all(!is.na(normality$Normal)) && all(normality$Normal)
   if (any(is.na(normality$Normal))) {
@@ -192,6 +193,6 @@ for (program in programs) {
   }
   
   if (!is.null(posthoc_table)) {
-    write.csv(posthoc_table, file.path(OUTPUT_DIR, sprintf("%s_posthoc.csv", program)), row.names = FALSE)
+    write.csv(posthoc_table, file.path(OUTPUT_DIR, sprintf("%s_posthoc.csv", prog)), row.names = FALSE)
   }
 }
